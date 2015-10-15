@@ -3,27 +3,35 @@
 
   time your middleware
 
-## License 
+  ![img](https://cldup.com/E2OA3LEane.png)
 
-(The MIT License)
+## Install
 
-Copyright (c) 2015 Matthew Mueller &lt;matt@lapwinglabs.com&gt;
+```
+npm install koa-timer
+```
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
+## Example
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+See the [example](examples/index.js).
 
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+## API
+
+#### `timer = Timer(options)`
+
+Initialize a timer with the following options:
+
+- slow (default 75): set what "slow" middleware means to your app
+- debug (default "koa:timer"): the debug namespace you want to use
+- threshold (default: false): only display middleware that's slower than the threshold
+- verbose (default: false): setting to true will show the timing before and after `yield next`
+
+Then to instrument the middleware, you do the following:
+
+```js
+app.use(timer(middleware()))
+```
+
+## License
+
+MIT
