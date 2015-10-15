@@ -2,7 +2,7 @@
  * Module Dependencies
  */
 
-var timer = require('..')({ slow: '3s' })
+var timer = require('..')({ slow: '3s', threshold: 2000 })
 var Koa = require('koa')
 var app = new Koa()
 
