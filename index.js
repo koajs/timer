@@ -63,7 +63,7 @@ function reducer (options) {
   var debug = Debug(options.debug || 'koa:timer')
   var threshold = options.threshold || false
   var verbose = options.verbose || false
-  var duration = speed(ms(options.slow) || 75)
+  var duration = speed(options.slow ? ms(options.slow) : 75)
 
   return function _reducer (name, top_start, top_end, bottom_start, bottom_end) {
     var top = top_end - top_start
